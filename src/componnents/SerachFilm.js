@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 const tmdbKey = '79d20fcb7463d523581f3641762c2b56';
 const tmdbBaseUrl = 'https://api.themoviedb.org/3';
 
-export default function SearchFilm({selectGenre, randomMovie}){
+export default function SearchFilm({selectGenre, randomMovie, liked}){
     //local states
     const [searchTerm, setSearchTerm] = useState('');
     const [genres, setGenres] = useState([]);
@@ -15,7 +16,7 @@ export default function SearchFilm({selectGenre, randomMovie}){
         
     }
     useEffect(()=>{
-        selectGenre(searchTerm)
+        selectGenre(searchTerm);
     });
 
     useEffect(()=>{
@@ -37,7 +38,14 @@ export default function SearchFilm({selectGenre, randomMovie}){
     },[]);
 
     return(
-        <div>
+        <div className="search">
+            <div className="pageBtn">
+                <button><Link to ="/">Recommend me!</Link></button>
+                <button>
+                    <Link to="/watchlist" state={{likedMovies:liked}} >Watch List!</Link>
+                </button>            
+            </div>
+            <div>
             <h2>Randomly recommended 🍿Film 
                 <br/>From different <span className="gen">Geners</span>
             </h2>
@@ -49,7 +57,7 @@ export default function SearchFilm({selectGenre, randomMovie}){
                 </select>
                 <button onClick={handleRandomMovi}>Play!</button>
             </div>
-
+            </div>
         </div>
     );
 }

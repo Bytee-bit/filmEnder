@@ -29,6 +29,20 @@ code {
   margin-bottom: 1rem;
 }
 /* ----------Search film section START----------------- */
+.search{
+  display: flex;
+  column-gap: 2rem;
+  align-items: flex-end;
+}
+.pageBtn{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.pageBtn > button{
+  padding: 1rem;
+  border-radius: 2rem;
+}
 .gen{
   border-bottom: 5px solid red;
 }
@@ -79,12 +93,16 @@ code {
   height: 100%;
 }
 .filmContainer > .filmPoster{
-  position: relative;
+  /* position: relative; */
   width: 40%;
   height: 100%;
   border-radius: .5rem;
 }
-.filmContainer > .filmPoster >img{
+/* ///////////////////////////////////////////// */
+/* -----------movie card START---------------- */
+/* ////////////////////////////////////////////// */
+
+.filmPoster >img{
   width: 100%;
   height:100%;
   border-radius: .5rem;
@@ -140,4 +158,23 @@ code {
   border: none;
   box-shadow: 2px 2px 8px black;
   cursor: pointer;
+}
+/* ///////////////////////////////////////////// */
+/* --------Watchlist cintainer START--------- */
+/* ////////////////////////////////////////////// */
+
+.watchlistContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+.likedMovieContainer{
+  width: 75%;
+  height: 50%;
+  display: flex;
+  gap: 1rem;
+}
+.likedMovieContainer > .filmPoster{
+  width: 25%;
 }

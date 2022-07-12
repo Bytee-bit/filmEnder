@@ -1,17 +1,15 @@
 import React from "react";
 import { Button } from "./button";
+import MovieCard from "./MovieCard";
 
-export default function RecommendFilm({movie}){
+export default function RecommendFilm({movie, likedMovie, randomMovie}){
     if(movie.id === undefined) return;   // just bad way to check 
-    console.log(movie);
+
     return (
         <div className="filmDisplay">
             <h2>Recommended Films_</h2>
             <div className="filmContainer">
-                <div className="filmPoster">
-                    <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={`poster of ${movie.title}`} />
-                    {/* <div className="playButton">▶️</div> */}
-                </div>
+                <MovieCard movie={movie}/>
                 <div className="filmIntro">
                     <h2>{movie.title}</h2>
                     <p>{movie.overview}</p>
@@ -21,8 +19,8 @@ export default function RecommendFilm({movie}){
                 </div>
             </div>
             <div className="buttonContainer">
-                <Button type = {"like"}/>
-                <Button type = {"dislike"}/>
+                <Button type = {"like"} movie={movie} likedMovie={likedMovie} randomMovie={randomMovie}/>
+                <Button type = {"dislike"} randomMovie = {randomMovie}/>
             </div>
         </div>
     );
